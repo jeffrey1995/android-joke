@@ -25,17 +25,17 @@ android {
     productFlavors {
         //开心一刻 多渠道打包测试
         happytime_360 {
-            manifestPlaceholders = [TD_CHANNEL_ID: "360happytime", UMENG_CHANNEL_ID: "360happytime", GUIDE_VERSION_ID: "1.0.0", PACKAGE_NAME: "com.parttime.happytime", icon:"@mipmap/ic_launcher"]
+            manifestPlaceholders = [TD_CHANNEL_ID: "360happytime", UMENG_CHANNEL_ID: "360happytime", GUIDE_VERSION_ID: "1.0.1", PACKAGE_NAME: "com.parttime.happytime", icon:"@mipmap/ic_launcher"]
             applicationId "com.parttime.happytime"
-            versionCode 100
-            versionName "1.0.0"
+            versionCode 101
+            versionName "1.0.1"
             resValue "string", "app_name", "开心一刻"
         }
         happytime_baidu {
-            manifestPlaceholders = [TD_CHANNEL_ID: "baiduhappytime", UMENG_CHANNEL_ID: "baiduhappytime", GUIDE_VERSION_ID: "1.0.0", PACKAGE_NAME: "com.parttime.happytime", icon:"@mipmap/ic_launcher"]
+            manifestPlaceholders = [TD_CHANNEL_ID: "baiduhappytime", UMENG_CHANNEL_ID: "baiduhappytime", GUIDE_VERSION_ID: "1.0.1", PACKAGE_NAME: "com.parttime.happytime", icon:"@mipmap/ic_launcher"]
             applicationId "com.parttime.happytime"
-            versionCode 100
-            versionName "1.0.0"
+            versionCode 101
+            versionName "1.0.1"
             resValue "string", "app_name", "开心一刻"
         }
     }
