@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        manifestPlaceholders = [app_label:"@string/app_name"]
+        applicationId "com.example.mrtian.joke"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            manifestPlaceholders = [app_label:"@string/app_name_debug"]
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        //开心一刻 多渠道打包测试
+        happytime_360 {
+            manifestPlaceholders = [TD_CHANNEL_ID: "360happytime", UMENG_CHANNEL_ID: "360happytime", GUIDE_VERSION_ID: "1.0.0", PACKAGE_NAME: "com.parttime.happytime", icon:"@mipmap/ic_launcher"]
+            applicationId "com.parttime.happytime"
+            versionCode 100
+            versionName "1.0.0"
+            resValue "string", "app_name", "开心一刻"
+        }
+        happytime_baidu {
+            manifestPlaceholders = [TD_CHANNEL_ID: "baiduhappytime", UMENG_CHANNEL_ID: "baiduhappytime", GUIDE_VERSION_ID: "1.0.0", PACKAGE_NAME: "com.parttime.happytime", icon:"@mipmap/ic_launcher"]
+            applicationId "com.parttime.happytime"
+            versionCode 100
+            versionName "1.0.0"
+            resValue "string", "app_name", "开心一刻"
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.1.1'
+}
+
+
