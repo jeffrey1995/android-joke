@@ -23,17 +23,7 @@ android {
 
         }
     }
-
-    android.applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            def outputFile = output.outputFile
-            if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                //这里修改apk文件名
-                def fileName = outputFile.name.replace("app", "${defaultConfig.versionName}_${releaseTime()}")
-                output.outputFile = new File(outputFile.parent, fileName)
-            }
-        }
-    }
+    
 
     productFlavors {
         //开心一刻 多渠道打包测试
@@ -60,7 +50,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
 }
 
-def releaseTime() {
-    return new Date().time.toString()
-}
 
