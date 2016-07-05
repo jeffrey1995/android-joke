@@ -16,4 +16,4 @@ BASEDIR=`dirname $0`
 #fi
 
 	cd $BASEDIR
-	exec java/bin/java -Dapple.laf.useScreenMenuBar=true -Dcom.apple.macos.use-file-dialog-packages=true -Xdock:name=360加固助手 -jar jiagu.jar
+	exec java/bin/java -jar jiagu.jar
