@@ -3,7 +3,20 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
+    signingConfigs {
+        debug {
+            storeFile file("joke.jks")
+            storePassword "ty1314"
+            keyAlias "joke"
+            keyPassword "ty1314"
+        }
+        relealse {
+            storeFile file("joke.jks")
+            storePassword "ty1314"
+            keyAlias "joke"
+            keyPassword "ty1314"
+        }
+    }
     defaultConfig {
         manifestPlaceholders = [app_label: "@string/app_name"]
         applicationId "com.example.mrtian.joke"
@@ -16,24 +29,17 @@ android {
     buildTypes {
         debug {
             manifestPlaceholders = [app_label: "@string/app_name_debug"]
+            signingConfig signingConfigs.debug
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.relealse
 
         }
     }
-
-    android.applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            def outputFile = output.outputFile
-            if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                //这里修改apk文件名
-                def fileName = outputFile.name.replace("app", "${defaultConfig.versionName}_${releaseTime()}")
-                output.outputFile = new File(outputFile.parent, fileName)
-            }
-        }
-    }
+    
 
     productFlavors {
         //开心一刻 多渠道打包测试
@@ -60,7 +66,4 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
 }
 
-def releaseTime() {
-    return new Date().time.toString()
-}
 
